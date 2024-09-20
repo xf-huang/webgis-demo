@@ -63,6 +63,7 @@ function createRouter(files) {
         })
     }
     console.log("共有", result.length, "个DEMO")
+    // console.log(result)
     return result
 }
 

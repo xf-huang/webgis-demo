@@ -44,7 +44,7 @@ export default {
           camera.aspect = canvas.clientWidth / canvas.clientHeight
           camera.updateProjectionMatrix()
         }
-        mesh.rotateY(0.01)
+        mesh.rotateY(0.1)
         controls.update();
         renderer.render(scene, camera);
         requestAnimationFrame(animate);

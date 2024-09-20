@@ -104,7 +104,7 @@ export default {
       var modelMatrix = Matrix4.multiplyByUniformScale(
         Matrix4.multiplyByTranslation(
           Transforms.eastNorthUpToFixedFrame(
-            Cartesian3.fromDegrees(116.23, 39.54)
+            Cartesian3.fromDegrees(116.23, 23.54)
           ),
           new Cartesian3(0.0, 0.0, 25),
           new Matrix4()
@@ -139,7 +139,7 @@ export default {
           }`
       }
       let appearance = new Appearance({
-        translucent: false, //显示不为半透明
+        translucent: true, //显示不为半透明
         closed: true,
         renderState: {
           blending: BlendingState.PRE_MULTIPLIED_ALPHA_BLEND, //使用Alpha混合功能启用混合
@@ -159,7 +159,7 @@ export default {
       )
       //
       viewer.camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.23, 39.54, 500),
+        destination: Cartesian3.fromDegrees(116.23, 23.54, 500),
         orientation: {
           heading: CesiumMath.toRadians(0),
           pitch: CesiumMath.toRadians(-90),
