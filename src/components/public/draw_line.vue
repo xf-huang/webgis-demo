@@ -51,7 +51,7 @@ class DrawLines {
       this.drawLine(this.activeShapePoints)
       this.layer.entities.remove(this.activeShape)
       this.activeShapePoints = []
-    }, Cesium.ScreenSpaceEventType.RIGHT_CLICK)
+    }, Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK)
   }
   /**
    * 添加鼠标点击事件的位置
@@ -127,3 +127,4 @@ export default {
   width: 100%;
 }
 </style>
+ 

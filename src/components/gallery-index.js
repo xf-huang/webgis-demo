@@ -35,6 +35,7 @@ const files = [
     { file: "public", name: 'cesium_threejs', title: 'Cesium集成Threejs' },
     { file: "public", name: 'map_3d', title: '3d地图' },
     { file: "public", name: 'optimizing_lots_of_objects', title: 'Threejs加载大量几何体' },
+    { file: "public", name: 'auto_ship', title: '无人船' },
     { file: "three", name: 'reflector_example', title: '倒影' },
     { file: "three", name: 'high_speed_light_trails', title: '移动轨迹' },
     { file: "three", name: 'custom_surface', title: '矩阵转曲面' },

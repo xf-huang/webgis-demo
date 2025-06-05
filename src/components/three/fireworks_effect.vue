@@ -32,7 +32,7 @@ export default {
         }
         `
       const fragmentShaderSource = `
-        #define SPARKS 30
+        #define SPARKS 50
         #define FIREWORKS 8.
         #define BASE_PAUSE FIREWORKS / 30.
         #define PI 3.14

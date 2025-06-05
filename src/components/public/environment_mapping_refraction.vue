@@ -14,7 +14,7 @@ export default {
       const canvas = document.querySelector('#c')
 
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000)
+      const camera = new THREE.PerspectiveCamera(55, canvas.clientWidth / canvas.clientHeight, 0.1, 1000)
       camera.position.z = 200
       scene.add(camera)
 

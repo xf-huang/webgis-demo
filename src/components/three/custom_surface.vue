@@ -16,7 +16,7 @@ class SurfaceGeometry extends THREE.BufferGeometry {
     const gridX1 = gridX + 1;
     const gridY1 = gridY + 1;
     const segment_width = width / gridX;
-    const segment_height = height / gridY; //
+    const segment_height = height / gridY; // segments
 
     const numVertices = gridX1 * gridY1;
     const numIndices = gridX * gridY * 6; // 6 indices per quad
@@ -79,8 +79,8 @@ class SurfaceMaterial extends THREE.ShaderMaterial {
         in float value;
         vec4 interpolateColor(float t) {
           t = smoothstep(min_value,max_value,t);
-          vec3 green = vec3(0.0, 1.0, 0.0);
-          vec3 red = vec3(1.0, 0.0, 0.0);
+          vec3 green = vec3(1.0, 1.0, 0.0);
+          vec3 red = vec3(1.0, 0.0, 1.0);
           vec3 color = mix(green, red, t);
           return vec4(color, smoothstep(0.0,0.1,t));
         }
@@ -113,7 +113,6 @@ class App {
     this.init()
   }
   init() {
-
     const matrix = this.generateMatrix(100, 10)
     const geometry = new SurfaceGeometry(5, 5, matrix);
     const material = new SurfaceMaterial({

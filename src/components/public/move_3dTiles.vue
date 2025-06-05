@@ -132,7 +132,7 @@ export default {
     left: 10px;
     width: 400px;
     background: rgba(42, 42, 42, 0.8);
-    padding: 20px;
+    padding: 10px;
     border-radius: 4px;
     color: white;
   }

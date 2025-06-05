@@ -7,6 +7,7 @@ import 'cesium/Build/Cesium/Widgets/widgets.css'
 import * as Cesium from 'cesium'
 const borderJson = require('../../../public/SampleData/sichuan.json')
 
+
 export default {
   mounted() {
     this.init()
@@ -18,14 +19,14 @@ export default {
         //判断是否支持图像渲染像素化处理
         viewer.resolutionScale = window.devicePixelRatio
       }
-      viewer.scene.postProcessStages.fxaa.enabled = true
+      viewer.scene.postProcessStages.fxaa.enabled = true // 启动抗锯齿效果
 
       const feature = borderJson.features[0]
       const coordinates = feature.geometry.coordinates
 
       let geometry = new Cesium.PolylineGeometry({
         positions: Cesium.Cartesian3.fromDegreesArray(coordinates.flat(2)),
-        width: 10.0
+        width: 20.0
       })
 
       const instance = new Cesium.GeometryInstance({
@@ -39,8 +40,8 @@ export default {
               type: 'MyBorderColor',
               uniforms: {
                 color: new Cesium.Color(0.2, 0.2, 0.8, 1.0),
-                glowPower: 0.25,
-                taperPower: 1
+                glowPower: 0.25, // 发光强度
+                taperPower: 1 // 渐变效果控制
               },
               source: `
                   uniform vec4 color;
@@ -63,14 +64,14 @@ export default {
 
                     material.emission = fragColor.rgb;
                     material.alpha = fragColor.a;
-
+                    
                     return material;
                   }
                 `
             }
           })
         }),
-        allowPicking: false
+        allowPicking: true
       })
 
       const maskArea = new Cesium.GeometryInstance({
@@ -104,7 +105,7 @@ export default {
       viewer.scene.primitives.add(glowBorder)
       viewer.scene.primitives.add(mask)
 
-      viewer.camera.flyToBoundingSphere(Cesium.PolylineGeometry.createGeometry(geometry).boundingSphere, { duration: 0 })
+      viewer.camera.flyToBoundingSphere(Cesium.PolylineGeometry.createGeometry(geometry).boundingSphere, { duration: 2.0 })
     }
   },
 }

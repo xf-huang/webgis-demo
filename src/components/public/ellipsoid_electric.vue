@@ -162,7 +162,7 @@ export default {
         ellipsoid: {
           radii: new Cesium.Cartesian3(100.0, 100.0, 100.0),
           material: new Cesium.EllipsoidElectricMaterialProperty({
-            color: new Cesium.Color(1.0, 0.5, 0.0, 1.0),
+            color: new Cesium.Color(1.0, 1.0, 0.0, 1.0),
             speed: 10.0
           })
         }

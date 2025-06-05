@@ -35,11 +35,11 @@ export default {
         animation: false,
         timeline: false,
       });
+      //判断是否支持图像渲染像素化处理
       if (FeatureDetection.supportsImageRenderingPixelated()) {
-        //判断是否支持图像渲染像素化处理
-        viewer.resolutionScale = window.devicePixelRatio
+        viewer.resolutionScale = window.devicePixelRatio // 设置分辨率
       }
-      viewer.scene.postProcessStages.fxaa.enabled = true
+      viewer.scene.postProcessStages.fxaa.enabled = true // 开启抗锯齿
       viewer.camera.flyTo({
         destination: Cartesian3.fromDegrees(100, 40, 1000),
         orientation: {
@@ -163,7 +163,7 @@ export default {
       // 5 动态修改雷达材质中的offset变量，从而实现动态效果。
       viewer.scene.preUpdate.addEventListener(function() {
         var offset = radar.appearance.material.uniforms.offset
-        offset -= 0.001
+        offset += 0.001
         if (offset > 1.0) {
           offset = 0.0
         }

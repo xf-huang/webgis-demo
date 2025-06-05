@@ -65,7 +65,7 @@ export default {
         new Cesium.PostProcessStage({
           fragmentShader: fragmentShaderSource,
           uniforms: {
-            fogByDistance: new Cesium.Cartesian4(10, 0.0, 4000, 1.0),
+            fogByDistance: new Cesium.Cartesian4(10, 0.0, 4000, 0.8),
             fogColor: new Cesium.Color(0.8, 0.8, 0.8, 1.0),
           },
         })

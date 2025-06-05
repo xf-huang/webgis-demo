@@ -10,8 +10,17 @@ export default {
     this.init()
   },
   methods: {
-    init() {
-      const viewer = new Cesium.Viewer('cesiumContainer')
+    async init() {
+      const viewer = new Cesium.Viewer('cesiumContainer', {
+        terrainProvider: await Cesium.createWorldTerrainAsync(),
+        scene3DOnly: true,
+        baseLayerPicker: true,
+        navigationHelpButton: true,
+        animation: true,
+        timeline: true,
+        fullscreenButton: true,
+        geocoder: true
+      })
       if (Cesium.FeatureDetection.supportsImageRenderingPixelated()) {
         //判断是否支持图像渲染像素化处理
         viewer.resolutionScale = window.devicePixelRatio

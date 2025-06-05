@@ -53,7 +53,7 @@ export default {
         selectionIndicator: false,
         infoBox: false,
         navigationInstructionsInitiallyVisible: false,
-        fullscreenButton: false,
+        fullscreenButton: true,
         allowTextureFilterAnisotropic: false,
         contextOptions: {
           webgl: {
@@ -63,14 +63,13 @@ export default {
             failIfMajorPerformanceCaveat: false,
             depth: true,
             stencil: false,
-            anialias: false,
           },
         },
         targetFrameRate: 60,
         resolutionScale: 0.1,
         orderIndependentTranslucency: true,
         imageryProvider: undefined,
-        baseLayerPicker: false,
+        baseLayerPicker: true,
         automaticallyTrackDataSourceClocks: false,
         dataSources: null,
         clock: null,
@@ -92,7 +91,8 @@ export default {
       })
     },
     initThreejs() {
-      const canvas = document.querySelector('#threeContainer')
+      // const canvas = document.querySelector('#threeContainer')
+      const canvas = document.getElementById('threeContainer')
       const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         alpha: true,
@@ -114,6 +114,7 @@ export default {
       three.scene = scene
       three.camera = camera
     },
+
     init3DObject() {
       // Cesium entity
       const entity = {
@@ -129,7 +130,7 @@ export default {
             minWGS84[0],
             maxWGS84[1],
           ]),
-          material: Color.RED.withAlpha(0.2),
+          material: Color.RED.withAlpha(0.5),
         },
       }
       cesium.viewer.entities.add(entity)
@@ -165,7 +166,7 @@ export default {
       var geometry = new THREE.LatheGeometry(points)
       var latheMesh = new THREE.Mesh(geometry, doubleSideMaterial)
       latheMesh.scale.set(1500, 1500, 1500) //scale object to be visible at planet scale
-      latheMesh.position.z += 15000 // translate "up" in Three.js space so the "bottom" of the mesh is the handle
+      latheMesh.position.z += 20000 // translate "up" in Three.js space so the "bottom" of the mesh is the handle
       latheMesh.rotation.x = Math.PI / 2 // rotate mesh for Cesium's Y-up system
       var latheMeshYup = new THREE.Group()
       latheMeshYup.add(latheMesh)
@@ -226,6 +227,7 @@ export default {
         )
       }
     },
+
     threeRender() {
       // Clone Cesium Camera projection position so the
       // Three.js Object will appear to be at the same place as above the Cesium Globe
